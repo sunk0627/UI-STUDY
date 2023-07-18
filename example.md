@@ -377,3 +377,5 @@ input에 색상을 지정해줄 수 있다. <br>
     color: cadetblue;
 }
 ```
+
+![sustainability_view_d](https://github.com/sunk0627/UI-STUDY/assets/110950117/05835ae1-4469-431a-88aa-62e938e05886)
