@@ -1,4 +1,5 @@
-## CSS - container, layer, viewport 단위, :has(), overscroll behavior, subgrid, accent color, media query의 범위
+## CSS NEW FEATURES
+ container, layer, viewport 단위, :has(), overscroll behavior, subgrid, accent color, media query의 범위
 
 
 ### 1. CONTAINER QUERY :
@@ -81,12 +82,13 @@
   - inline-size: 인라인 레벨 기준으로 컨테이너 적용 (주로 쓰인다)
   - size: 블록 레벨 기준으로 컨테이너 적용
   - normal: none의 의미
--  IE 제외한 나머지 브라우저 지원한다.
+-  IE 제외한 나머지 브라우저 호환.
 
-### 2. LAYER 
-### 3. VIEWPORT 단위 (svh, lvh, dvh) : 
+### 2. VIEWPORT 단위 (svh, lvh, dvh) : 
 모바일 safari에서 vh를 결정할 때 일부 UI를 무시하는 버그가 있다. <br>height: 100vh로 지정시 페이지가 로드됐을 때 높이가 화면 넘치게 지정되는 현상이 발생한다. <br>
 vh 버그를 해결하기 위한 방법으로 새로운 뷰포트 단위를 사용하면 모바일 브라우저 사용 환경에 알맞은 화면의 높이값을 반영할 수 있다.<br>
+예) 
+
 <http://styleship.com/ui/html/vh_test.html>
 *(모바일 브라우저로 확인)*
    - **svh** (short viewport height)
@@ -102,9 +104,10 @@ vh 버그를 해결하기 위한 방법으로 새로운 뷰포트 단위를 사�
   <br><br>
   - safari 15.4 이상/ 크롬 지원
   
-### 4. :has() : 
+### 3. :has() : 
 해당 자식을 갖고 있는 부모 요소를 선택하여 적용하는 가상 클래스이다. <br>
 css의 if문 버전이라고 생각하면 된다. 
+- 파이어폭스/익스를 제외한 브라우저에서 지원된다.
 ```html
 <!-- example -->
 <div class="parent">
@@ -142,7 +145,6 @@ div.section1:not(:has(h3)) {
   color: red;
 }
 ```
-- 파이어폭스/익스를 제외한 브라우저에서 지원된다.
   
 예 ) <br> <http://styleship.com/ui/html/has_test.html>
 - 아래 예시에서는 부모 image-gallery박스가 마우스오버 시의 img를 가지고 있을 경우 마우스 오버하지 않은 img의 scale 작게, opacity 흐리게 스타일을 적용한 것이다.
@@ -200,7 +202,7 @@ div.section1:not(:has(h3)) {
     </div>
 </div>
 ```
-### 5. OVERSCROLL BEHAVIOR :
+### 4. OVERSCROLL BEHAVIOR :
 우리가 스크롤에서 겪을 수 있는 이슈 중 하나가 스크롤 체이닝 현상이다. <br>
 >*스크롤 체이닝(scroll chaining) 이란? 하위 컨테이너박스의 스크롤이 맨 하단에 도달했을 때 상위 컨테이너박스의 스크롤도 같이 움직이는 현상이다.<br>
 
@@ -209,6 +211,7 @@ overscroll-bahavior:contain 속성은 이러한 상황을 방지할 수 있게 �
 예 )<br>
 <http://styleship.com/ui/html/overscroll.html> 
 - 아래 예시에서는 overscroll-behavior의 속성값인 auto와 contain을 비교하였다.
+- 모든 브라우저 호환
 ```css
 .scroll-wrap {
 	display: flex;
@@ -303,10 +306,13 @@ h2 {
 
 </div>
 ```
-### 6. ACCENT COLOR :
+### 5. ACCENT COLOR :
 input에 색상을 지정해줄 수 있다. <br>
+- 브라우저에서 자동으로 색 대비를 고려하여 최적화 해준다.
+-  IE 제외한 나머지 브라우저 호환.
 
-예 )
+예 ) <br>
+<http://styleship.com/ui/html/accent_color.html>
 ```html
 <!-- example -->
 <div class="accent-color-box">
@@ -377,4 +383,17 @@ input에 색상을 지정해줄 수 있다. <br>
     color: cadetblue;
 }
 ```
+### 6. MEDIA QUERY RANGES :
+미디어 쿼리의 최대 / 최소 너비 지정이 간편해졌다.
+- IE를 제외한 모든 브라우저 호환
+```css
+/* Classic Way */
+@media only screen (min-width: 300px) and (max-width: 750px) {
 
+}
+
+/* Rewritten using a Range Context */
+@media only screen (300px <= width <= 750px) {
+
+}
+```
