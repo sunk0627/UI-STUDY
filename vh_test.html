@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if IE 6]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie6" lang="ko-KR"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie7" lang="ko-KR"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9 ie8" lang="ko-KR"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10 ie9" lang="ko-KR"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="ko-KR"> <!--<![endif]-->
+<head>
+
+    <meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+
+    <title>MAIN | BRAN NAME</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+    <link rel="stylesheet" href="../css/pages/import.css">
+    <script src="../js/common/libs/modernizr.custom.js"></script>
+    <script src="../js/common/libs/greensock/TweenMax.min.js"></script>
+    <script src="../js/common/libs/jquery-1.9.1.min.js"></script>
+    <script src="../js/common/libs/easing-1.3.min.js"></script>
+    <script src="../js/common/libs/slick.min.js"></script>
+    <script src="../js/common/libs/sly.min.js"></script>
+    <script src="../js/common/styleship/mighty.base.1.5.7.min.js"></script>
+    <script src="../js/common/styleship/matizResizeMap.1.0.0.min.js"></script>
+    <script src="../js/common/styleship/mighty.grid.1.3.2.min.js"></script>
+    <script src="../js/common/styleship/mighty.sort.1.2.1.min.js"></script>
+    <script src="../js/common/default.js"></script>
+
+	<script src="https://www.pxg.co.kr/pc/resource/js/lib/scrollmagic/ScrollMagic.js"></script>
+	<script src="https://www.pxg.co.kr/pc/resource/js/lib/scrollmagic/animation.gsap.js"></script>
+	<script src="https://www.pxg.co.kr/pc/resource/js/lib/scrollmagic/debug.addIndicators.js"></script>
+    
+    <!-- 개별 css, js -->
+
+<style>
+	
+	input {
+		position: absolute;
+		z-index: -9999;
+		opacity: 0;
+	}
+	label {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100px;
+		height: 30px;
+		background-color: black;
+		font-weight: 700;
+		font-size: 14px;
+		color: rgb(255,255,255);
+	}
+	label:nth-of-type(2) {top: 35px;}
+	label:nth-of-type(3) {top: 70px;}
+	label:nth-of-type(4) {top: 105px}
+	input:checked + label {background-color: orange;}
+
+
+	.bg {
+		overflow: hidden;
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+	}
+	.bg img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: auto;
+		height: 100%;
+		transform: translate(-50%, -50%);
+	}
+
+	#vhBtn:checked ~ .bg {height: 100vh;}
+	#svhBtn:checked ~ .bg {height: 100svh;}
+	#dvhBtn:checked ~ .bg {height: 100dvh;}
+	#lvhBtn:checked ~ .bg {height: 100lvh;}	
+</style>
+
+</head>
+<body>
+
+<!--
+https://mong-blog.tistory.com/entry/CSSJS-vh-%EB%B2%84%EA%B7%B8-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95dvh-%EC%82%AC%EC%9A%A9%EB%B2%95-js-%EA%B3%84%EC%82%B0%EB%B2%95
+
+https://wit.nts-corp.com/2022/02/24/6490
+-->
+
+<!-- start of :: wrap -->
+<div id="wrap">	
+	<input type="radio" id="vhBtn" name="vhCheck" checked />
+	<label for="vhBtn">vh button</label>
+
+	<input type="radio" id="svhBtn" name="vhCheck" />
+	<label for="svhBtn">svh button</label>
+
+	<input type="radio" id="dvhBtn" name="vhCheck" />
+	<label for="dvhBtn">dvh button</label>
+
+	<input type="radio" id="lvhBtn" name="vhCheck" />
+	<label for="lvhBtn">lvh button</label>
+
+	<div class="bg">
+		<img src="./img/vh_test01.jpg" alt="">
+	</div>
+</div>
+<!-- end of :: wrap-->
+
+
+
+</body>
+</html>

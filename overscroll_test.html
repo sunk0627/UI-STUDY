@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>overscroll behavior</title>
+</head>
+<style>
+*{margin: 0;padding: 0;}
+.scroll-wrap {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	padding: 100px;
+	min-height: 200vh;
+	background-color: #ffc857;
+	box-sizing: border-box;
+}
+.scroll-box {
+ width: 200px;
+}
+.scroll-box ul {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	height: 50vh;
+	overflow: auto;
+	list-style: none;
+}
+.no-scroll-chain {
+	overscroll-behavior: contain;
+}
+h2 {
+	padding: 10px;
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+	color: skyblue;
+	background-color: #777;
+}
+.scroll-box ul li {
+	background-color: rgb(255,255,255);
+	padding: 10px 20px;
+	box-sizing: border-box;
+}
+.scroll-box ul li:nth-child(even) {
+	background-color: #eee;
+}
+@media only screen and (min-width: 376px) {
+	.scroll-box {width: 50%;}
+	.scroll-box ul {height: 300px;}
+}
+</style>
+<body>
+	<div class="scroll-wrap">
+		<div class="scroll-box">
+			<h2>auto</h2>
+			<ul>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+			</ul>
+		</div>
+		<div class="scroll-box">
+			<h2>contain</h2>
+			<ul class="no-scroll-chain">
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+				<li>source</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

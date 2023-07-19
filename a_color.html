@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	 .accent-color-box {
+        padding: 30px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .accent-color-box .inp-box {}
+
+    .accent-color-box input[type="radio"] {
+        accent-color: deeppink;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+    }
+
+    .accent-color-box input[type="radio"]+label {
+        font-size: 18px;
+        vertical-align: middle;
+    }
+
+    .accent-color-box input[type="checkbox"] {
+        accent-color: orange;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+    }
+
+    .accent-color-box input[type="checkbox"]+label {
+        font-size: 20px;
+        vertical-align: middle;
+        color: cadetblue;
+    }
+
+    .accent-color-box .inp-box2 input[type="checkbox"] {
+        accent-color: deeppink;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+    }
+
+    .accent-color-box .inp-box2 input[type="checkbox"]+label {
+        font-size: 20px;
+        vertical-align: middle;
+        color: cadetblue;
+    }
+
+</style>
+<body>
+	
+<div class="accent-color-box">
+    <div class="inp-box">
+        <input type="radio" id="1" name="radio" checked>
+        <label for="1">1</label>
+        <input type="radio" id="2" name="radio">
+        <label for="2">2</label>
+        <input type="radio" id="3" name="radio">
+        <label for="3">3</label>
+    </div>
+    <div class="inp-box">
+        <input type="checkbox" id="4" checked>
+        <label for="4">4</label>
+        <input type="checkbox" id="5">
+        <label for="5">5</label>
+    </div>
+    <div class="inp-box2">
+        <input type="checkbox" id="4" checked>
+        <label for="4">4</label>
+        <input type="checkbox" id="5">
+        <label for="5">5</label>
+    </div>
+</div>
+</body>
+</html>

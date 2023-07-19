@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>has</title>
+</head>
+<style>
+    .has-img-wrap {
+        padding: 50px;
+        box-sizing: border-box;
+    }
+    .has-img-wrap h2 {
+        text-align: center;
+        padding-bottom: 40px;
+        color: pink;
+    }
+
+    .has-img-wrap .image-gallery {
+        margin: 0 auto;
+        width: 900px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .has-img-wrap .image-gallery img {
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
+        /* scale: .8;
+        opacity: .7; */
+        transition: all ease .3s;
+    }
+
+    .has-img-wrap .image-gallery:has(img:hover) img:not(:hover) {
+        scale: .8;
+        opacity: .7;
+    }
+
+    /* .image-gallery img:hover {
+        scale: 1;
+        opacity: 1;
+    } */
+</style>
+<body>
+	<div class="has-img-wrap">
+		<h2>image gallery</h2>
+		<div class="image-gallery">
+			<img src="./img/1.png" alt="">
+			<img src="./img/2.png" alt="">
+			<img src="./img/3.png" alt="">
+			<img src="./img/1.png" alt="">
+			<img src="./img/2.png" alt="">
+			<img src="./img/3.png" alt="">
+			<img src="./img/1.png" alt="">
+			<img src="./img/2.png" alt="">
+			<img src="./img/3.png" alt="">
+		</div>
+	</div>
+</body>
+</html>

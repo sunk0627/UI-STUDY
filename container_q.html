@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>container</title>
+</head>
+<body>
+	<style>
+		.container {
+			width: 1400px;
+			margin: 0 auto;
+		}
+		#btn1 {
+			position: absolute;
+			text-indent: -9999;
+			opacity: 0;
+		}
+		#btn1 + label {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100px;
+			height: 50px;
+			font-size: 20px;
+			font-weight: 700;
+			color: aliceblue;
+			background-color: violet;
+		}
+		.container .sidebar {
+			padding: 20px;
+			width: 100px;
+			height: 300px;
+			border: 1px solid #000;
+			box-sizing: border-box;
+			container-name: container;
+			container-type: inline-size;
+		}
+		.container .sidebar p {
+			text-align: center;
+			font-size: 18px;
+		}
+		#btn1:checked ~ .sidebar {width: 200px;}
+
+		@container container (min-width: 100px) {
+			.container .sidebar p {
+				font-size: 28px;
+				font-weight: 700;
+			}
+		}
+	</style>
+	 <div class="wrap">
+        <div class="container">
+            <input type="checkbox" id="btn1">
+            <label for="btn1">BUTTON</label>
+            <div class="sidebar">
+                <p>sidebar</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
