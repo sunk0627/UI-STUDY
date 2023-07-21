@@ -397,3 +397,45 @@ input에 색상을 지정해줄 수 있다. <br>
 
 }
 ```
+### 7. INERT 
+HTML 요소에 inert 속성을 사용하면 해당 요소를 비활성 상태로 만들 수 있다.
+- pointer-events: none의 역할을 한다.
+- user-select: none의 역할을 한다.
+- 
+예)
+```html
+<div class="box1" inert>비활성</div>
+<div class="box2">활성</div>
+<a href="" inert>비활성</a>
+<a href="">활성</a>
+<input type="checkbox" inert>	
+<input type="text" inert>
+<input type="text">
+<hr>
+<button inert>비활성</button>
+<button>활성</button>
+```
+```css
+[inert] {
+    opacity: 0.5;
+}
+```
+```js
+//이벤트
+$('.box1').click(function(){
+    alert('box1 clicked');
+});
+$('.box2').click(function(){
+    alert('box2 clicked');
+});
+
+//스타일
+$('.box1').css("color", "red");
+$('.box2').css("color", "red");
+```
+- 이점
+    - 화면 밖에 숨겨져 있다가 나타나는 ui를 접했을 때 활용할 수 있다. (lnb영역이 보였다가 닫히면 표시되지 않는 서랍형 ui)
+    - lnb가 닫혀있는 상태에서 탭하여 포커스를 이동한 후에 인풋창에 타이핑을 하면 콘솔에 글씨가 찍힌다. lnb가 닫힌 경우에는 input에 inert속성을 추가하여 타이핑 되는 것을 막아준다.
+
+예) <br>
+http://styleship.com/ui/html/inert.html
