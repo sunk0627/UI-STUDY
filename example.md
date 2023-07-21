@@ -84,6 +84,7 @@
   - normal: none의 의미
 -  IE 제외한 나머지 브라우저 호환.
 
+
 ### 2. VIEWPORT 단위 (svh, lvh, dvh) : 
 모바일 safari에서 vh를 결정할 때 일부 UI를 무시하는 버그가 있다. <br>height: 100vh로 지정시 페이지가 로드됐을 때 높이가 화면 넘치게 지정되는 현상이 발생한다. <br>
 vh 버그를 해결하기 위한 방법으로 새로운 뷰포트 단위를 사용하면 모바일 브라우저 사용 환경에 알맞은 화면의 높이값을 반영할 수 있다.<br>
@@ -401,6 +402,7 @@ input에 색상을 지정해줄 수 있다. <br>
 HTML 요소에 inert 속성을 사용하면 해당 요소를 비활성 상태로 만들 수 있다.
 - pointer-events: none의 역할을 한다.
 - user-select: none의 역할을 한다.
+- IE 를 제외한 모든 브라우저 호환
   
 ```html
 <div class="box1" inert>비활성</div>
@@ -438,3 +440,73 @@ $('.box2').css("color", "red");
 
 예) <br>
 http://styleship.com/ui/html/inert.html
+
+### 8. CASCADE LAYERS :
+css 스타일을 선언할 때 우선순위를 결정하는 방식들이 있는데 그 중의 하나로 @layer가 추가되었다. <br>
+예를들면, 아래와 같이 스타일을 레이어로 그룹화할 수 있으며 레이어의 스타일 우선순위를 정할 수 있다.<br>
+
+예) <br>
+http://styleship.com/ui/html/cascade_layer.html
+```html
+<p class="text">hello world</p>
+```
+```css
+@layer style {
+    .text {
+        color: red;
+    }
+}
+```
+- 레이어는 선언 순서에 따라 스타일이 적용되며, 늦게 선언될수록 높은 우선순위를 가지게 된다.<br>
+아래 코드에서는 layer_3 > layer_2 > layer_1 순으로 스타일 우선순위를 가진다.
+```css
+@layer layer_1 {
+  .text {
+    color: red;
+    font-weight: 700;
+  }
+}
+
+@layer layer_2 {
+  .text {
+    color: blue;
+    font-weight: 400;
+  }
+}
+
+@layer layer_3 {
+  .text {
+    color: orange;
+  }
+}
+```
+- 레이어 이름을 재사용 할 수 있다. 
+    - 이미 선언한 레이어에 스타일을 추가하고 싶을 때 레이어 이름을 통해 추가할 수 있다.
+    - 레이어의 스타일을 추가한다고 해서 레이어의 우선순위가 변하지 않는다.
+```css
+/*  layer_1에 스타일 추가 */
+@layer layer_1 {
+  .text {
+    font-style: italic;
+  }
+}
+```
+- revert-layer로 레이어 스타일을 되돌릴 수 있다.
+```css
+@layer base {
+  p {
+    color: red;
+  }
+}
+
+@layer next {
+  p {
+    color: blue;
+  }
+
+  /* p태그에 text클래스가 지정되어 있으면, color가 이전 레이어(base)의 red로 적용됨 */
+  .text {
+    color: revert-layer;
+  }
+}
+```
