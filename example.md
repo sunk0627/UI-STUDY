@@ -401,8 +401,7 @@ input에 색상을 지정해줄 수 있다. <br>
 HTML 요소에 inert 속성을 사용하면 해당 요소를 비활성 상태로 만들 수 있다.
 - pointer-events: none의 역할을 한다.
 - user-select: none의 역할을 한다.
-- 
-예)
+  
 ```html
 <div class="box1" inert>비활성</div>
 <div class="box2">활성</div>
