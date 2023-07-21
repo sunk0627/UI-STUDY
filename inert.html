@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>inert</title>
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<style>
+	[inert] {
+		opacity: 0.5;
+	}
+
+	aside {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		background: #ccc;
+		width: 200px;
+		padding: 10px;
+		left: -200px;
+		box-sizing: border-box;
+		transition: left 0.35s;
+	}
+	aside .toggle-btn {
+		position: absolute;
+		left: 100%;
+		white-space: nowrap;
+	}
+	aside.active {
+		left: 0;
+	}
+	 
+</style>
+<body>
+	<div class="box1" inert>비활성</div>
+	<div class="box2">활성</div>
+	<a href="" inert>비활성</a>
+	<a href="">활성</a>
+	<input type="checkbox" inert>	
+	<input type="text" inert>
+	<input type="text">
+	<hr>
+	<button inert>비활성</button>
+	<button>활성</button>
+
+	<hr>
+	<!-- 서랍메뉴 -->
+	<aside>
+		<h2>서랍메뉴</h2>
+		<form action="">
+			<input type="search">
+			<button>검색</button>
+		</form>
+		<button type="button" class="toggle-btn">검색열기</button>		
+	</aside>
+</body>
+<script>
+	//이벤트
+	$('.box1').click(function(){
+		alert('box1 clicked');
+	});
+	$('.box2').click(function(){
+		alert('box2 clicked');
+	});
+	//스타일
+	$('.box1').css("color", "red");
+	$('.box2').css("color", "red");
+
+	// 서랍형
+	let aside = $('.aside');
+	let toggleBtn = $('.toggle-btn');
+	let searchInp = $('aside input');
+
+	toggleBtn.click(function(){
+		$(this).parents(aside).toggleClass('active');
+	});
+
+	searchInp.keyup(function(){
+		console.log(searchInp.val());
+	});
+
+</script>
+</html>	
